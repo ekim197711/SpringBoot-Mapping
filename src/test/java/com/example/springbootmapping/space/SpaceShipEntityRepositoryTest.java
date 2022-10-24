@@ -1,28 +1,37 @@
 package com.example.springbootmapping.space;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SpaceShipRepositoryTest {
+class SpaceShipEntityRepositoryTest {
 
     @Autowired
     SpaceShipRepository repository;
 
+    @Test
+    void shipsLessThan(){
+        List<SpaceShipEntity> byFuelLessThan = repository.findByFuelLessThan(50);
+        Assertions.assertEquals(2, byFuelLessThan.size());
+        byFuelLessThan.forEach(System.out::println);
+    }
+
+    @Test
+    void counttest(){
+        long yellow = repository.totalBlabla("Yellow");
+        Assertions.assertEquals(1, yellow);
+    }
 
 
 
     @Test
     void gimmeAllShips() {
-        List<SpaceShip> spaceShips = repository.gimmeAllShips();
-        Assertions.assertTrue(spaceShips.size() > 0);
+        List<SpaceShipEntity> spaceShipEntities = repository.gimmeAllShips();
+        Assertions.assertTrue(spaceShipEntities.size() > 0);
     }
 
     @Test

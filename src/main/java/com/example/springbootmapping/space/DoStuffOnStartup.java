@@ -13,17 +13,33 @@ public class DoStuffOnStartup {
     @PostConstruct
     void beforeCreateShips(){
         repository.save(
-                SpaceShip.builder()
+                SpaceShipEntity.builder()
                         .captain("Mike")
                         .fuel(99)
                         .description("Pyramid Yellow").
                         build()
         );
         repository.save(
-                SpaceShip.builder()
+                SpaceShipEntity.builder()
                         .captain("susan")
                         .fuel(59)
                         .description("Box Blue").
+                        build()
+        );
+
+
+        repository.save(
+                SpaceShipEntity.builder()
+                        .captain("Line")
+                        .fuel(25)
+                        .description("Round Black").
+                        build()
+        );
+        repository.save(
+                SpaceShipEntity.builder()
+                        .captain("Henrik")
+                        .fuel(17)
+                        .description("Cool Green").
                         build()
         );
     }

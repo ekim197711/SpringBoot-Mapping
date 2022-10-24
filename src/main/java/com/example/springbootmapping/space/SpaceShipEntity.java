@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SpaceShip {
+public class SpaceShipEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
